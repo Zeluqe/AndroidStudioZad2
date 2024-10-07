@@ -47,8 +47,10 @@ public class MainActivity extends AppCompatActivity {
                 String confirm = editTextConfirmPassword.getText().toString().trim();
 
                 // Walidacja danych
-                if (name.isEmpty() || surname.isEmpty()) {
-                    Toast.makeText(MainActivity.this, "Proszę wprowadzić imię oraz nazwisko", Toast.LENGTH_SHORT).show();
+                if ( name.isEmpty() ) {
+                    Toast.makeText(MainActivity.this, "Proszę wprowadzić imię", Toast.LENGTH_SHORT).show();
+                } else if ( surname.isEmpty() ) {
+                    Toast.makeText(MainActivity.this, "Proszę wprowadzić nazwisko", Toast.LENGTH_SHORT).show();
                 } else if (email.isEmpty()) {
                     Toast.makeText(MainActivity.this, "Proszę wprowadzić adres e-mail", Toast.LENGTH_SHORT).show();
                 } else if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
@@ -60,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 } else if (password.isEmpty()) {
                     Toast.makeText(MainActivity.this, "Proszę wprowadzić hasło", Toast.LENGTH_SHORT).show();
                 } else if (password.length() < 6) {
-                    Toast.makeText(MainActivity.this, "Wprowadź dłuższe hasło (Minimum 6 znkaów", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Wprowadź dłuższe hasło            (Minimum 6 znaków)", Toast.LENGTH_SHORT).show();
                 } else if (!(password.matches(confirm))) {
                     Toast.makeText(MainActivity.this, "Hasła są różne!", Toast.LENGTH_SHORT).show();
                 } else {
